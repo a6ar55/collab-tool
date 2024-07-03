@@ -1,13 +1,13 @@
-import React, { Children } from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import FeatureSection from './components/FeatureSection'
-import Footer from './components/Footer'
-import Login from './components/Login'
-import Signup from './components/Signup'
-import Dashboard from './components/Dashboard'
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import {store} from './redux/store.js';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import Dashboard from './components/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute';
 
-import { createBrowserRouter,RouterProvider } from "react-router-dom"
+
 
 const Root = () => {
   return (
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     children: [
-      // Define other routes here if needed
+      // Define other public routes here if needed
     ],
   },
   {
@@ -40,14 +40,23 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <Dashboard />
+    element: <ProtectedRoute />,
+    children: [
+      {
+        path: 'profile',
+        element: <Dashboard />
+      }
+    ]
   }
 ]);
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   );
 }
 
-export default App
+export default App;
+

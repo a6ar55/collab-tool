@@ -13,6 +13,14 @@ export const navItems = [
   { label: "Testimonials", href: "#" },
 ];
 
+
+export const dashItems = [
+  {label: "Notes",href: "#"},
+  {label: "Sheets",href:"#"},
+  {label: "Video",href: "#"},
+  {label: "Team",href: "#"},
+]
+
 export const features = [
     {
       icon: <BotMessageSquare />,
