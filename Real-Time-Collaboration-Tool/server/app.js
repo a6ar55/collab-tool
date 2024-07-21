@@ -5,6 +5,7 @@ import userAuth from './routes/userAuth.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import path from 'path'
+import user from './routes/user.js';
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ app.get('/', (req, res) => {
 
 // Use user authentication routes
 app.use('/api/auth/', userAuth);
+app.use('/api/user/', user);
 
 // Error handler middleware
 app.use((err, req, res, next) => {

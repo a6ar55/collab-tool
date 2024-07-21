@@ -6,6 +6,10 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero.jsx';
+import FeatureSection from './components/FeatureSection.jsx'
+import Footer from './components/Footer.jsx';
 
 
 
@@ -27,7 +31,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     children: [
-      // Define other public routes here if needed
     ],
   },
   {
